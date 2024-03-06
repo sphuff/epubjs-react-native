@@ -23,29 +23,29 @@ export type ViewProps = Omit<ReaderProps, 'src' | 'fileSystem'> & {
 export function View({
   templateUri,
   allowedUris,
-  onStarted = () => {},
-  onReady = () => {},
-  onDisplayError = () => {},
-  onResized = () => {},
-  onLocationChange = () => {},
-  onRendered = () => {},
-  onSearch = () => {},
-  onLocationsReady = () => {},
-  onSelected = () => {},
-  onMarkPressed = () => {},
-  onOrientationChange = () => {},
-  onLayout = () => {},
-  onNavigationLoaded = () => {},
-  onBeginning = () => {},
-  onFinish = () => {},
-  onPress = () => {},
-  onDoublePress = () => {},
+  onStarted = () => { },
+  onReady = () => { },
+  onDisplayError = () => { },
+  onResized = () => { },
+  onLocationChange = () => { },
+  onRendered = () => { },
+  onSearch = () => { },
+  onLocationsReady = () => { },
+  onSelected = () => { },
+  onMarkPressed = () => { },
+  onOrientationChange = () => { },
+  onLayout = () => { },
+  onNavigationLoaded = () => { },
+  onBeginning = () => { },
+  onFinish = () => { },
+  onPress = () => { },
+  onDoublePress = () => { },
   width,
   height,
   initialLocation,
   enableSwipe = true,
-  onSwipeLeft = () => {},
-  onSwipeRight = () => {},
+  onSwipeLeft = () => { },
+  onSwipeRight = () => { },
   defaultTheme = initialTheme,
   renderOpeningBookComponent = () => (
     <OpeningBook width={width} height={height} />
@@ -120,7 +120,7 @@ export function View({
     }
 
     if (type === 'onLocationChange') {
-      const { totalLocations, currentLocation, progress } = parsedEvent;
+      const { totalLocations, currentLocation, progress, text } = parsedEvent;
       setTotalLocations(totalLocations);
       setCurrentLocation(currentLocation);
       setProgress(progress);
@@ -131,7 +131,7 @@ export function View({
         setAtStart(false);
         setAtEnd(false);
       }
-      return onLocationChange(totalLocations, currentLocation, progress);
+      return onLocationChange(totalLocations, currentLocation, progress, text);
     }
 
     if (type === 'onSearch') {
@@ -197,7 +197,7 @@ export function View({
       return onNavigationLoaded(toc);
     }
 
-    return () => {};
+    return () => { };
   };
 
   useEffect(() => {

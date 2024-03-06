@@ -137,7 +137,8 @@ export interface ReaderProps {
   onLocationChange?: (
     totalLocations: number,
     currentLocation: Location,
-    progress: number
+    progress: number,
+    text: string
   ) => void;
   /**
    * Called once when the book has been searched
